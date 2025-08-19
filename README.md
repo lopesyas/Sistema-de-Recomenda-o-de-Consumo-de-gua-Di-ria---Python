@@ -1,3 +1,4 @@
+![Python](https://img.shields.io/badge/Python-3.11-blue)
 -- Sistema de Recomendação de Consumo de Água Diária-- 
 
 **Descrição
