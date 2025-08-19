@@ -1,0 +1,48 @@
+# Sistema de Recomendação de Consumo de Água Diária
+
+print("\n--- Sistema de Recomendação de Consumo de Água Diária ---")
+
+def calcular_imc(peso, altura):
+    return peso / (altura**2)
+
+def calcular_consumo_agua(peso):
+    return (peso * 35) / 1000  # litros
+
+# Função para registrar dados do usuário
+def registrar_pessoa():
+    nome = input("Nome: ")
+    numero_whatsapp = input("Número de Whatsapp: ")
+    peso = float(input("Peso (em kg): "))
+    altura = float(input("Altura (em m): "))
+    return nome, numero_whatsapp, peso, altura
+
+# Programa principal
+nome, numero_whatsapp, peso, altura = registrar_pessoa()
+
+while True:
+    print("1 - Descobrir IMC")
+    print("2 - Quantidade de água recomendada (p/dia)")
+    print("3 - Mostrar tudo")
+    print("0 - Sair")
+
+    opcao = input("\nEscolha uma opção: ").strip()
+
+    if opcao == "1":
+        imc = calcular_imc(peso, altura)
+        print(f"\nIMC de {nome}: {imc:.2f}")
+    elif opcao == "2":
+        agua = calcular_consumo_agua(peso)
+        print(f"\nConsumo diário recomendado de água para {nome}: {agua:.2f} litros\n")
+    elif opcao == "3":
+        imc = calcular_imc(peso, altura)
+        agua = calcular_consumo_agua(peso)
+        print(f"\nNome: {nome}")
+        print(f"Número de Whatsapp: {numero_whatsapp}")
+        print(f"Peso: {peso} kg / Altura: {altura} m")
+        print(f"IMC: {imc:.2f}")
+        print(f"Consumo diário recomendado de água: {agua} litros\n")
+    elif opcao == "0":
+        print("Saindo do programa...")
+        break
+    else:
+        print("Opção inválida!")
